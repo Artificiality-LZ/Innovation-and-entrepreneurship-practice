@@ -16,3 +16,7 @@ main函数如下
 
 运行结果：
 ![8L5_71OF8 6PSQVGZ A~D S](https://user-images.githubusercontent.com/105494706/181438355-993cac2e-fcaa-4d8f-a0ff-ef3682dab026.png)
+
+
+
+未组队，独立完成所有工作
