@@ -12,4 +12,9 @@ Project: do your best to optimize SM3 implementation (software)
 
 Project: implement the naïve birthday attack of reduced SM3  
 
+位于SM3_生日攻击文件夹
+
 Project: implement the Rho method of reduced SM3
+
+
+位于SM3_Rho攻击文件夹
