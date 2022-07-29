@@ -49,7 +49,7 @@ SM3_B* get_string_test(string str);
 
 
 
-//Ñ­»·×óÒÆº¯Êý
+//å¾ªçŽ¯å·¦ç§»å‡½æ•°
 void cycle_shift_left(unsigned int target, unsigned int step, unsigned int& re)
 {
 	unsigned int head = target >> (32 - step);
@@ -57,7 +57,7 @@ void cycle_shift_left(unsigned int target, unsigned int step, unsigned int& re)
 }
 
 
-//FFº¯Êý
+//FFå‡½æ•°
 unsigned int FF(unsigned int X, unsigned int Y, unsigned int Z, unsigned int j)
 {
 
@@ -70,7 +70,7 @@ unsigned int FF(unsigned int X, unsigned int Y, unsigned int Z, unsigned int j)
 		return (X & Y) | (X & Z) | (Y & Z);
 	}
 }
-//GGº¯Êý
+//GGå‡½æ•°
 unsigned int GG(unsigned int X, unsigned int Y, unsigned int Z, unsigned int j)
 {
 
@@ -84,7 +84,7 @@ unsigned int GG(unsigned int X, unsigned int Y, unsigned int Z, unsigned int j)
 	}
 }
 
-//µü´úº¯Êý
+//è¿­ä»£å‡½æ•°
 SM3_V main_cycle(SM3_B* CTX)
 {
 	SM3_V IV;
@@ -94,7 +94,7 @@ SM3_V main_cycle(SM3_B* CTX)
 		CF(*temp, IV);
 		temp = temp->next;
 	}
-	cout << "ÔÓ´ÕÖµ:";
+	cout << "æ‚å‡‘å€¼:";
 	for (int i = 0; i < 8; i++)
 	{
 		cout << hex << IV.V[i] << "  ";
@@ -105,7 +105,7 @@ SM3_V main_cycle(SM3_B* CTX)
 }
 
 
-//Ñ¹Ëõº¯Êý
+//åŽ‹ç¼©å‡½æ•°
 void CF(SM3_B& CTX, SM3_V& IV)
 {
 	SM3_W W;
@@ -178,7 +178,7 @@ void CF(SM3_B& CTX, SM3_V& IV)
 }
 
 
-//ÏûÏ¢À©Õ¹
+//æ¶ˆæ¯æ‰©å±•
 void exten(SM3_B& CTX, SM3_W& W, SM3_W_P& W_P)
 {
 	for (int i = 0; i < 16; i++)
@@ -196,13 +196,13 @@ void exten(SM3_B& CTX, SM3_W& W, SM3_W_P& W_P)
 	{
 		W_P.W_P[i] = W.W[i] ^ W.W[i + 4];
 	}
-	/*cout << "À©Õ¹ºóµÄÏûÏ¢W£º";
+	/*cout << "æ‰©å±•åŽçš„æ¶ˆæ¯Wï¼š";
 	for (int i = 0; i < 68; i++)
 	{
 		cout << hex << W.W[i] << "   ";
 	}
 	cout << endl;
-	cout << "À©Õ¹ºóµÄÏûÏ¢W_P£º";
+	cout << "æ‰©å±•åŽçš„æ¶ˆæ¯W_Pï¼š";
 	for (int i = 0; i < 64; i++)
 	{
 		cout << hex << W_P.W_P[i] << "   ";
@@ -211,7 +211,7 @@ void exten(SM3_B& CTX, SM3_W& W, SM3_W_P& W_P)
 
 }
 
-//ÖÃ»»º¯ÊýP0
+//ç½®æ¢å‡½æ•°P0
 unsigned int P0(unsigned int X)
 {
 	unsigned int X9 = 0, X17 = 0;
@@ -220,7 +220,7 @@ unsigned int P0(unsigned int X)
 	return X ^ X9 ^ X17;
 }
 
-//ÖÃ»»º¯ÊýP1
+//ç½®æ¢å‡½æ•°P1
 unsigned int P1(unsigned int X)
 {
 	unsigned int X15 = 0, X23 = 0;
@@ -241,7 +241,7 @@ unsigned int T(int i)
 }
 
 
-//»ñÈ¡×Ö·û´®×ª»»ÎªÊý×Ö
+//èŽ·å–å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•°å­—
 SM3_B* get_string_test(string str)
 {
 	unsigned long long len = str.length();
@@ -292,7 +292,7 @@ SM3_B* get_string_test(string str)
 	temp->B[14] = len >> 32;
 	temp->B[15] = len & 0xffffffff;
 	/*temp = head;
-	cout << "Ìî³äÖ®ºóµÄÏûÏ¢£º";
+	cout << "å¡«å……ä¹‹åŽçš„æ¶ˆæ¯ï¼š";
 	while (temp!=nullptr)
 	{
 		for (int i = 0; i < 16; i++)
